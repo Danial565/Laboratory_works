@@ -41,7 +41,6 @@ int main()
     try
     {
         sphere s(r);
-        s.setR(r);
         std::cout << "surface area of the sphere: " << s.SurfaceArea() << std::endl;
         std::cout << "sphere volume: " << s.Volume() << std::endl;
     }
