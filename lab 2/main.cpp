@@ -1,5 +1,3 @@
-﻿
-
 #include <iostream>
 
 class sphere {
@@ -14,8 +12,7 @@ public:
     {
         if (r < 0)
         {
-            std::cout << "Negative radius" << std::endl;
-            return;
+            throw "Negative radius";
         }
         d_r = r;
     }
@@ -40,10 +37,16 @@ int main()
 {
     int r;
     std::cin >> r;
-    sphere s(r);
-    s.setR(r);
-    std::cout<< "surface area of the sphere: " << s.SurfaceArea() << std::endl;
-    std::cout << "sphere volume: " << s.Volume() << std::endl;
+    try
+    {
+        sphere s(r);
+        s.setR(r);
+        std::cout << "surface area of the sphere: " << s.SurfaceArea() << std::endl;
+        std::cout << "sphere volume: " << s.Volume() << std::endl;
+    }
+    catch(...)
+    {
+        std::cout << "Negative radius" << std::endl;
+    }
+
 }
-
-
