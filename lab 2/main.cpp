@@ -1,18 +1,19 @@
 #include <iostream>
 
+
 class sphere {
 private:
     float d_r;
 public:
     sphere(float r)
     {
-        d_r = r;
+        setR(r);
     }
     void setR(float r)
     {
         if (r < 0)
         {
-            throw "Negative radius";
+            throw std::exception("Negative radius");
         }
         d_r = r;
     }
@@ -44,9 +45,10 @@ int main()
         std::cout << "surface area of the sphere: " << s.SurfaceArea() << std::endl;
         std::cout << "sphere volume: " << s.Volume() << std::endl;
     }
-    catch(...)
+    catch(std::exception& e)
     {
-        std::cout << "Negative radius" << std::endl;
+        std::cout << e.what() << std::endl;
     }
-
+   
 }
+
